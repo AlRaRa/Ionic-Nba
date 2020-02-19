@@ -1,10 +1,5 @@
 import { Request, Response } from 'express'
 import { connect } from '../database'
-import { IPlayer } from '../interfaces/player.model'
-import path from 'path'
-
-
-
 
 
 export async function getPlayers(req: Request, res: Response): Promise<Response | void> {
