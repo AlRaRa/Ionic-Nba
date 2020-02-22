@@ -5,5 +5,18 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="login" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label color="primary">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button shape="round" type="submit">Entrar</ion-button>
+    <ion-button shape="round">Entra con Google</ion-button>
+    <ion-button shape="round">Entra con Facebook</ion-button>
+  </form>
 
 </ion-content>
