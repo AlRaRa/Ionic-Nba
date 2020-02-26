@@ -25,5 +25,27 @@ export class PlayerService {
     return this.http.get<Player[]>(environment.players);
   }
 
+  filterPlayerById(id) {
+    this.selectedPlayer$ = this.players$.pipe(map(players => players.filter(player => player.playerID === id)[0]));
+  }
+
+  filterPlayersByTeam(team){
+    this.foundPlayers$ = this.players$.pipe(map(players => players.filter(player => player.team === team.value)));
+  }
+
+  filterPlayerByPosition(position){
+    this.foundPlayers$ = this.players$.pipe(
+      map(players => players.filter(player => player.position === position.value))
+    );
+  }
+
+  filterPlayerByFirstName(characters : string){
+    this.foundPlayers$ = this.players$.pipe(
+      map(players => players.filter(data => data.firstName.toUpperCase().includes(characters.toUpperCase())))
+    );
+  }
+
+
+
 
 }
