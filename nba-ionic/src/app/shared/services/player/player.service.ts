@@ -45,6 +45,15 @@ export class PlayerService {
     );
   }
 
+  searchEntries(terms: Observable<string>) {
+    terms
+      .pipe(
+        map((e: any) => e.target.value),
+        distinctUntilChanged()
+      )
+      .subscribe(data => this.filterPlayerByFirstName(data));
+  }
+
 
 
 
