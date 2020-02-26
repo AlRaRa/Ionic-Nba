@@ -1,0 +1,14 @@
+  <ion-header no-border>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Players</ion-title>
+      </ion-toolbar>
+      <ion-searchbar
+      (ionChange)="searchTerm$.next($event)" ></ion-searchbar>
+    </ion-header>
+
+<ion-content>
+   <app-card-player *ngFor="let player of playerService.foundPlayers$ | async" [player]="player" (clicked)="onPlayedSelected($event)"></app-card-player>
+</ion-content>
