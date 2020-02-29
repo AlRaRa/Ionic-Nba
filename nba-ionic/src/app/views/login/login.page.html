@@ -15,7 +15,7 @@
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
     <ion-row>
-      <ion-button size="small" shape="round" type="submit">Entrar</ion-button>
+      <ion-button size="small" shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
       <ion-button shape="round">Google</ion-button>
       <ion-button shape="round">Facebook</ion-button>
     </ion-row>
