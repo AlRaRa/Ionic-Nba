@@ -16,6 +16,11 @@ export class FirebaseService {
     (user === null) ? this.isLogged = false : this.isLogged = true;
   }
 
+  loginWithGoogle() {
+    const googleProvider = new this.fireAuth.auth.GoogleAuthProvider();
+    this.fireAuth.auth.signInWithPopup(googleProvider);
+  }
+
   loginWithEmail({ email, password }: { email: string, password: string; }) {
     this.fireAuth.auth.signInWithEmailAndPassword(email, password)
       .then(console.log)
