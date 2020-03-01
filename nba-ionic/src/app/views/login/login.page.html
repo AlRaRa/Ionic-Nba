@@ -1,22 +1,29 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title class="ion-text-center">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]="login" (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label color="primary">Email</ion-label>
+      <ion-label position="floating" color="primary">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="primary">Contraseña</ion-label>
+      <ion-label position="floating" color="primary">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <ion-button shape="round" type="submit">Entrar</ion-button>
-    <ion-button shape="round">Entra con Google</ion-button>
-    <ion-button shape="round">Entra con Facebook</ion-button>
+
+    <ion-row class="ion-padding">
+      <ion-button shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
+      <ion-button shape="round">
+        <ion-icon color="light" name="logo-google"></ion-icon>
+      </ion-button>
+      <ion-button shape="round">
+        <ion-icon color="light" name="logo-facebook"></ion-icon>
+      </ion-button>
+    </ion-row>
   </form>
 
 </ion-content>
