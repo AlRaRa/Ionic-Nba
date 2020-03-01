@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title class="ion-text-center">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +14,15 @@
       <ion-label position="floating" color="primary">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <ion-row>
-      <ion-button size="small" shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
-      <ion-button shape="round">Google</ion-button>
-      <ion-button shape="round">Facebook</ion-button>
+
+    <ion-row class="ion-padding">
+      <ion-button shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
+      <ion-button shape="round">
+        <ion-icon color="light" name="logo-google"></ion-icon>
+      </ion-button>
+      <ion-button shape="round">
+        <ion-icon color="light" name="logo-facebook"></ion-icon>
+      </ion-button>
     </ion-row>
   </form>
 
