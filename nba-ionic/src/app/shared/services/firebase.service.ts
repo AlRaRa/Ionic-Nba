@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from 'firebase';
+import * as firebase from "firebase/app";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,13 @@ export class FirebaseService {
   }
 
   loginWithGoogle() {
-    const googleProvider = new this.fireAuth.auth.GoogleAuthProvider();
-    this.fireAuth.auth.signInWithPopup(googleProvider);
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    return this.fireAuth.auth.signInWithRedirect(googleProvider);
+  }
+
+  loginWithFacebook() {
+    const facebookProvider = new firebase.auth.FacebookAuthProvider;
+    return this.fireAuth.auth.signInWithRedirect(facebookProvider);
   }
 
   loginWithEmail({ email, password }: { email: string, password: string; }) {
