@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, ObservableInput, interval, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-import { debounceTime, distinctUntilChanged, map, switchMap, subscribeOn, share } from 'rxjs/operators';
+import {  distinctUntilChanged, map } from 'rxjs/operators';
 import { Player } from '../../models/player.model';
 
 @Injectable({
@@ -21,6 +21,7 @@ export class PlayerService {
   }
 
   getPlayer() {
+  
     return this.http.get<Player[]>(environment.players);
   }
 
