@@ -28,7 +28,8 @@ export class TeamService {
 
   filterByName(characters: string) {
     this.foundTeams$ = this.teams$.pipe(
-      map(players => players.filter(data => data.name.toUpperCase().includes(characters.toUpperCase())))
+      map(players => players.filter(data => data.name.toUpperCase()
+      .includes(characters.toUpperCase())))
     );
   }
 
