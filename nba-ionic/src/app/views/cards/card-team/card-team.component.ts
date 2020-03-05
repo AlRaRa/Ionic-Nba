@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Team } from '../../../shared/models/team.model';
 
 @Component({
   selector: 'app-card-team',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardTeamComponent implements OnInit {
 
+  @Input() team: Team;
   constructor() { }
 
   ngOnInit() {}
