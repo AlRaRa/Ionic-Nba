@@ -2,20 +2,20 @@ import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angu
 import { PlayerService } from '../../shared/services/player/player.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { CardPlayerComponent } from '../cards/card-player/card-player.component';
+import { Player } from 'src/app/shared/models/player.model';
 
 
 @Component({
   selector: 'app-player-search',
   templateUrl: './player-search.page.html',
   styleUrls: ['./player-search.page.scss'],
-  providers:[PlayerService]
+  providers: [PlayerService]
 })
-export class PlayerSearchPage implements OnInit{
+export class PlayerSearchPage implements OnInit {
 
- 
+
   searchTerm$ = new Subject<string>();
-  public selectedPlayer:number = null;
- 
+
 
   constructor(private playerService: PlayerService) { }
 
@@ -23,14 +23,14 @@ export class PlayerSearchPage implements OnInit{
     this.playerService.searchEntries(this.searchTerm$);
   }
 
- 
 
-  onPlayerSelected(id: number){
-    this.playerService.filterPlayerById(id)
+
+  onPlayerSelected(player: Player) {
+    console.log(player);
   }
 
- 
 
-  
+
+
 
 }
