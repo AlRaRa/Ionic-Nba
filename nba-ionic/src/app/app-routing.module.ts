@@ -16,6 +16,16 @@ const routes: Routes = [
     path: 'players',
     loadChildren: () => import('./views/player-search/player-search.module').then(m => m.PlayerSearchPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'team-search',
+    loadChildren: () => import('./views/team-search/team-search.module').then(m => m.TeamSearchPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'stadium-search',
+    loadChildren: () => import('./views/stadium-search/stadium-search.module').then(m => m.StadiumSearchPageModule),
+    canActivate: [AuthGuard]
   }
 ];
 @NgModule({
