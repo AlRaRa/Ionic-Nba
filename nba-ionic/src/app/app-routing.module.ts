@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'players',
-    loadChildren: () => import('./views/player-search/player-search.module').then(m => m.PlayerSearchPageModule)
+    loadChildren: () => import('./views/player-search/player-search.module').then(m => m.PlayerSearchPageModule),
+    canActivate: [AuthGuard]
   }
 ];
 @NgModule({
