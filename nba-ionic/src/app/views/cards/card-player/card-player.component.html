@@ -1,10 +1,10 @@
-<ion-item (click)="onClick()">
-    <ion-avatar slot="start">
-      <img [src]="'http://localhost:5000/' + player.photoUrl" >
-    </ion-avatar>
-    <ion-label>
-      <h2>{{player.lastName}}</h2>
-      <h3>{{player.firstName}}</h3>
-      <p>I've got enough on my plate as it is, and I...</p>
-    </ion-label>
+<ion-item>
+  <ion-avatar slot="start">
+    <img [src]="'http://localhost:5000/' + player.photoUrl">
+  </ion-avatar>
+  <ion-label>
+    <h2>{{player.lastName}}</h2>
+    <h3>{{player.firstName}}</h3>
+    <p>I've got enough on my plate as it is, and I...</p>
+  </ion-label>
 </ion-item>
