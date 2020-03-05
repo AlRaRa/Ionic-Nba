@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { TeamService } from 'src/app/shared/services/team/team.service';
 
 @Component({
   selector: 'app-team-search',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamSearchPage implements OnInit {
 
-  constructor() { }
+  searchTerm$ = new Subject<string>();
+
+  constructor(private teamService: TeamService) { }
 
   ngOnInit() {
+    this.teamService.searchEntries(this.searchTerm$);
   }
+
 
 }
