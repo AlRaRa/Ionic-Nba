@@ -7,17 +7,12 @@ import { Player } from 'src/app/shared/models/player.model';
   styleUrls: ['./card-player.component.scss'],
 })
 export class CardPlayerComponent implements OnInit {
-  
+
   @Input() player: Player;
-  @Input() expanded: boolean = false;
-  @Output() clicked: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onClick(){
-    this.clicked.emit(this.player.playerID);
-  }
 
 }

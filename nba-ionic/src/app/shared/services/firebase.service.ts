@@ -19,23 +19,28 @@ export class FirebaseService {
 
   loginWithGoogle() {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    return this.fireAuth.auth.signInWithRedirect(googleProvider);
+    return this.fireAuth.auth.signInWithPopup(googleProvider).then(({ user }) => this.saveUser(user));
   }
 
   loginWithFacebook() {
     const facebookProvider = new firebase.auth.FacebookAuthProvider;
-    return this.fireAuth.auth.signInWithRedirect(facebookProvider);
+    return this.fireAuth.auth.signInWithPopup(facebookProvider).then(({ user }) => this.saveUser(user));
   }
 
   loginWithEmail({ email, password }: { email: string, password: string; }) {
-    this.fireAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(console.log)
+    return this.fireAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(({ user }) => this.saveUser(user))
       .catch(console.error);
   }
 
   registerUser({ email, password }: { email: string, password: string; }) {
-    this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(console.log)
+    return this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(({ user }) => this.saveUser(user))
       .catch(console.error);
+  }
+
+  saveUser(user: User) {
+    this.isLogged = true;
+    this.userLogged = user;
   }
 }

@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="login" (ngSubmit)="logForm()">
+  <form [formGroup]="login" (ngSubmit)="loginEmail()">
     <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
@@ -14,16 +14,14 @@
       <ion-label position="floating" color="primary">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-
-    <ion-row class="ion-padding">
-      <ion-button shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
-      <ion-button shape="round">
-        <ion-icon color="light" name="logo-google"></ion-icon>
-      </ion-button>
-      <ion-button shape="round">
-        <ion-icon color="light" name="logo-facebook"></ion-icon>
-      </ion-button>
-    </ion-row>
+    <ion-button expand="full" shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
+    <ion-button expand="full" shape="round" (click)="loginGoogle()">
+      <ion-icon color="light" name="logo-google"></ion-icon>
+    </ion-button>
+    <ion-button expand="full" shape="round" (click)="loginFacebook()">
+      <ion-icon color="light" name="logo-facebook"></ion-icon>
+    </ion-button>
+    <ion-button expand="full" shape="round" (click)="register()">Registrate</ion-button>
   </form>
 
 </ion-content>
