@@ -18,6 +18,9 @@ export class PlayerService {
     this.getPlayer().subscribe(players => {
       this.playersSubject.next(players);
     });
+
+    this.foundPlayers$ = this.getPlayer();
+
   }
 
   getPlayer() {

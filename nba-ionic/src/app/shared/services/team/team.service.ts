@@ -19,7 +19,7 @@ export class TeamService {
     this.getTeam().subscribe(teams => {
       this.teamsSubject.next(teams);
     });
-
+    this.foundTeams$ = this.getTeam();
   }
 
   getTeam(){

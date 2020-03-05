@@ -15,7 +15,12 @@ const routes: Routes = [
   {
     path: 'players',
     loadChildren: () => import('./views/player-search/player-search.module').then(m => m.PlayerSearchPageModule),
-    canActivate: [AuthGuard]
+    canActivate: []
+  },
+  {
+    path: 'teams',
+    loadChildren: () => import('./views/team-search/team-search.module').then(m => m.TeamSearchPageModule),
+    canActivate: []
   }
 ];
 @NgModule({
