@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FirebaseService } from 'src/app/shared/services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class LoginPage implements OnInit {
   protected login: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private firebaseService: FirebaseService, private router: Router) {
     this.login = this.formBuilder.group({
       email: ['', Validators.compose([Validators.maxLength(70), Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$'), Validators.required])],
       password: [''],
@@ -17,10 +19,33 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    if (this.firebaseService.isLogged) this.router.navigateByUrl('/');
   }
 
-  logForm = () => {
-    console.log(this.login);
+  loginEmail = () => {
+    const { email, password } = this.login.value;
+    this.firebaseService.loginWithEmail({ email, password }).then(() => {
+      this.router.navigateByUrl('/');
+    });
+  };
+
+  loginGoogle = () => {
+    this.firebaseService.loginWithGoogle().then(() => {
+      this.router.navigateByUrl('/');
+    });
+  };
+
+  loginFacebook = () => {
+    this.firebaseService.loginWithFacebook().then(() => {
+      this.router.navigateByUrl('/');
+    });
+  };
+
+  register = () => {
+    const { email, password } = this.login.value;
+    this.firebaseService.registerUser({ email, password }).then(() => {
+      this.router.navigateByUrl('/');
+    });
   };
 
 }
