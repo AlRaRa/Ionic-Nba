@@ -6,12 +6,14 @@ import { PlayerSearchPageRoutingModule } from './player-search-routing.module';
 import { PlayerSearchPage } from './player-search.page';
 import { CardPlayerComponent } from '../cards/card-player/card-player.component';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlayerSearchPageRoutingModule
+    PlayerSearchPageRoutingModule,
   ],
   declarations: [PlayerSearchPage, CardPlayerComponent]
 })
