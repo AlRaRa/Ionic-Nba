@@ -15,6 +15,7 @@ import { CardPlayerComponent } from '../cards/card-player/card-player.component'
     IonicModule,
     PlayerSearchPageRoutingModule,
   ],
-  declarations: [PlayerSearchPage, CardPlayerComponent]
+  declarations: [PlayerSearchPage, CardPlayerComponent],
+  exports: [PlayerSearchPage]
 })
-export class PlayerSearchPageModule {}
+export class PlayerSearchPageModule { }
