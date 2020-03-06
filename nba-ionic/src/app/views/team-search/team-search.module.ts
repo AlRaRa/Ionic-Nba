@@ -13,6 +13,7 @@ import { CardTeamComponent } from '../cards/card-team/card-team.component';
     IonicModule,
     TeamSearchPageRoutingModule
   ],
+  exports: [TeamSearchPage],
   declarations: [TeamSearchPage, CardTeamComponent]
 })
-export class TeamSearchPageModule {}
+export class TeamSearchPageModule { }
