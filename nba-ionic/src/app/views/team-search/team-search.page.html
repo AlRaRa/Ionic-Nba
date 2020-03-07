@@ -7,7 +7,7 @@
 
 <ion-content>
   <ion-list>
-    <app-card-team *ngFor="let team of teamService.foundTeams$ | async" [team]="team" (click)="onPlayerSelected(team)">
+    <app-card-team *ngFor="let team of teamService.foundTeams$ | async" [team]="team" (click)="onTeamSelected(team)">
     </app-card-team>
   </ion-list>
 </ion-content>
