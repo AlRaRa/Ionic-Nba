@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { PlayerSearchPageRoutingModule } from './player-search-routing.module';
 import { PlayerSearchPage } from './player-search.page';
 import { CardPlayerComponent } from '../cards/card-player/card-player.component';
+import { PlayerModalPageModule } from '../player-modal/player-modal.module';
 
 
 
@@ -14,6 +15,7 @@ import { CardPlayerComponent } from '../cards/card-player/card-player.component'
     FormsModule,
     IonicModule,
     PlayerSearchPageRoutingModule,
+    PlayerModalPageModule
   ],
   declarations: [PlayerSearchPage, CardPlayerComponent],
   exports: [PlayerSearchPage]

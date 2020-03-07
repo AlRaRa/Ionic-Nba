@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { PlayerService } from '../../shared/services/player/player.service';
 import { Subject } from 'rxjs/internal/Subject';
-import { CardPlayerComponent } from '../cards/card-player/card-player.component';
 import { Player } from 'src/app/shared/models/player.model';
+import { ModalController } from '@ionic/angular';
+import { PlayerModalPage } from '../player-modal/player-modal.page';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class PlayerSearchPage implements OnInit {
   searchTerm$ = new Subject<string>();
 
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.playerService.searchEntries(this.searchTerm$);
@@ -25,8 +26,12 @@ export class PlayerSearchPage implements OnInit {
 
 
 
-  onPlayerSelected(player: Player) {
-    console.log(player);
+  async onPlayerSelected(player: Player) {
+    const modal = await this.modalController.create({
+      component: PlayerModalPage,
+      componentProps: { player }
+    });
+    await modal.present();
   }
 
 
