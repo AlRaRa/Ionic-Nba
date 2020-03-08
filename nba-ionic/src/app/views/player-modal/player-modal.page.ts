@@ -14,6 +14,7 @@ export class PlayerModalPage implements OnInit {
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
+    console.log(this.player)
   }
 
   exit() {
