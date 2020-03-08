@@ -14,14 +14,16 @@
       <ion-label position="floating" color="primary">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <ion-button expand="full" shape="round" type="submit" [disabled]="login.invalid">Entrar</ion-button>
-    <ion-button expand="full" shape="round" (click)="loginGoogle()">
-      <ion-icon color="light" name="logo-google"></ion-icon>
-    </ion-button>
-    <ion-button expand="full" shape="round" (click)="loginFacebook()">
-      <ion-icon color="light" name="logo-facebook"></ion-icon>
-    </ion-button>
-    <ion-button expand="full" shape="round" (click)="register()">Registrate</ion-button>
+    <ion-grid>
+      <ion-button expand="block" type="submit" [disabled]="login.invalid">Entrar</ion-button>
+      <ion-button expand="block" (click)="loginGoogle()" fill="outline">
+        <ion-icon name="logo-google"></ion-icon>
+      </ion-button>
+      <ion-button expand="block" (click)="loginFacebook()" fill="outline">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+      <ion-button expand="block" (click)="register()">Registrate</ion-button>
+    </ion-grid>
   </form>
 
 </ion-content>
