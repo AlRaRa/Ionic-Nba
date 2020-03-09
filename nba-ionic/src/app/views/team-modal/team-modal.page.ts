@@ -17,6 +17,7 @@ export class TeamModalPage implements OnInit {
   }
 
   exit() {
+    console.log(this.team)
     this.modalController.dismiss();
   }
 

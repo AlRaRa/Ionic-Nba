@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, ObservableInput, interval, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import {  distinctUntilChanged, map } from 'rxjs/operators';
@@ -38,9 +38,10 @@ export class PlayerService {
     );
   }
 
-  filterPlayerByFirstName(characters: string) {
+  filterByNameAndSurname(characters: string) {
     this.foundPlayers$ = this.players$.pipe(
-      map(players => players.filter(data => data.firstName.toUpperCase().includes(characters.toUpperCase())))
+      map(players => players.filter(data => (data.firstName.toUpperCase().includes(characters.toUpperCase()) || 
+      data.lastName.toUpperCase().includes(characters.toUpperCase()))))
     );
   }
 
@@ -50,7 +51,7 @@ export class PlayerService {
         map((e: any) => e.target.value),
         distinctUntilChanged()
       )
-      .subscribe(data => this.filterPlayerByFirstName(data));
+      .subscribe(data => this.filterByNameAndSurname(data));
   }
 
 
