@@ -12,21 +12,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./views/login/login.module').then(m => m.LoginPageModule)
   },
-  {
-    path: 'players',
-    loadChildren: () => import('./views/player-search/player-search.module').then(m => m.PlayerSearchPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'stadium',
-    loadChildren: () => import('./views/stadium-search/stadium-search.module').then(m => m.StadiumSearchPageModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'teams',
-    loadChildren: () => import('./views/team-search/team-search.module').then(m => m.TeamSearchPageModule),
-    canActivate: [AuthGuard]
-  }
+
 ];
 @NgModule({
   imports: [

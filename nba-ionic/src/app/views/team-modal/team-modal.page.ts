@@ -7,17 +7,15 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './team-modal.page.html',
   styleUrls: ['./team-modal.page.scss'],
 })
-export class TeamModalPage implements OnInit {
+export class TeamModalPage{
 
   @Input() team: Team;
 
   constructor(private modalController: ModalController) { }
 
-  ngOnInit() {
-  }
+ 
 
   exit() {
-    console.log(this.team)
     this.modalController.dismiss();
   }
 

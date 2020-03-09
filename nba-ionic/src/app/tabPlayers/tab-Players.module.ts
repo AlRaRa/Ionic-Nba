@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab2Page } from './tab2.page';
+import { TabPlayers } from './tab-Players.page';
 import { PlayerSearchPageModule } from '../views/player-search/player-search.module';
 
 @NgModule({
@@ -11,9 +11,9 @@ import { PlayerSearchPageModule } from '../views/player-search/player-search.mod
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab2Page }]),
+    RouterModule.forChild([{ path: '', component: TabPlayers }]),
     PlayerSearchPageModule
   ],
-  declarations: [Tab2Page]
+  declarations: [TabPlayers]
 })
-export class Tab2PageModule { }
+export class TabPlayersPageModule { }

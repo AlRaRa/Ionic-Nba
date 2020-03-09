@@ -12,17 +12,18 @@ import { PlayerModalPage } from '../player-modal/player-modal.page';
   styleUrls: ['./player-search.page.scss'],
   providers: [PlayerService]
 })
-export class PlayerSearchPage implements OnInit {
+export class PlayerSearchPage {
 
 
   searchTerm$ = new Subject<string>();
 
 
-  constructor(private playerService: PlayerService, private modalController: ModalController) { }
+  constructor(private playerService: PlayerService, private modalController: ModalController) { 
 
-  ngOnInit() {
     this.playerService.searchEntries(this.searchTerm$);
   }
+
+ 
 
 
 

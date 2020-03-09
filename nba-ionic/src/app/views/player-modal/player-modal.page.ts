@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Player } from "../../shared/models/player.model";
 
@@ -7,15 +7,13 @@ import { Player } from "../../shared/models/player.model";
   templateUrl: './player-modal.page.html',
   styleUrls: ['./player-modal.page.scss'],
 })
-export class PlayerModalPage implements OnInit {
+export class PlayerModalPage  {
 
   @Input() player: Player;
 
   constructor(private modalController: ModalController) { }
 
-  ngOnInit() {
-    console.log(this.player)
-  }
+ 
 
   exit() {
     this.modalController.dismiss();

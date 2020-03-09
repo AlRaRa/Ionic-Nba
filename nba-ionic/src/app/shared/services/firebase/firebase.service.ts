@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { User } from 'firebase';
 import * as firebase from "firebase/app";
-import { HandlerFirebaseExceptions } from '../exceptions/handlerFirebase.exceptions';
+import { HandlerFirebaseExceptions } from '../../exceptions/handlerFirebase.exceptions';
 
 @Injectable({
   providedIn: 'root'
