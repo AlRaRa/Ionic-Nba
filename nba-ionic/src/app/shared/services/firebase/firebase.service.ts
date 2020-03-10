@@ -14,11 +14,11 @@ export class FirebaseService {
     fireAuth.authState.subscribe(this.userIsLogued);
   }
 
-  userIsLogued(user: User) {
+  userIsLogued(user: User): void {
     (user === null) ? this.isLogged = false : this.isLogged = true;
   }
 
-  loginWithGoogle() {
+  loginWithGoogle(): Promise<void> {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return this.fireAuth.auth.signInWithPopup(googleProvider)
       .then(({ user }) => this.saveUser(user))
@@ -27,7 +27,7 @@ export class FirebaseService {
       });
   }
 
-  loginWithFacebook() {
+  loginWithFacebook(): Promise<void> {
     const facebookProvider = new firebase.auth.FacebookAuthProvider;
     return this.fireAuth.auth.signInWithPopup(facebookProvider)
       .then(({ user }) => this.saveUser(user))
@@ -36,7 +36,7 @@ export class FirebaseService {
       });
   }
 
-  loginWithEmail({ email, password }: { email: string, password: string; }) {
+  loginWithEmail({ email, password }: { email: string, password: string; }): Promise<void> {
     return this.fireAuth.auth.signInWithEmailAndPassword(email, password)
       .then(({ user }) => this.saveUser(user))
       .catch((error: firebase.FirebaseError) => {
@@ -44,7 +44,7 @@ export class FirebaseService {
       });
   }
 
-  registerUser({ email, password }: { email: string, password: string; }) {
+  registerUser({ email, password }: { email: string, password: string; }): Promise<void> {
     return this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(({ user }) => this.saveUser(user))
       .catch((error: firebase.FirebaseError) => {
@@ -52,7 +52,7 @@ export class FirebaseService {
       });
   }
 
-  saveUser(user: User) {
+  saveUser(user: User): void {
     this.isLogged = true;
     this.userLogged = user;
   }

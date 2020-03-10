@@ -3,17 +3,17 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TabTeamsPage } from './tab-Teams.page';
-import { TeamSearchPageModule } from '../views/team-search/team-search.module';
+import { TabPlayers } from './tab-Players.page';
+import { PlayerSearchPageModule } from '../player-search/player-search.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: TabTeamsPage }]),
-    TeamSearchPageModule
+    RouterModule.forChild([{ path: '', component: TabPlayers }]),
+    PlayerSearchPageModule
   ],
-  declarations: [TabTeamsPage]
+  declarations: [TabPlayers]
 })
-export class TabTeamsPageModule { }
+export class TabPlayersPageModule { }

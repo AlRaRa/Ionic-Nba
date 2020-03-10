@@ -2,12 +2,11 @@
   <ion-toolbar>
     <ion-title class="ion-text-center">Teams</ion-title>
   </ion-toolbar>
-  <ion-searchbar (ionChange)="searchTerm$.next($event)"></ion-searchbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <app-card-team *ngFor="let team of teamService.foundTeams$ | async" [team]="team" (click)="onTeamSelected(team)">
+    <app-card-team *ngFor="let team of teamService.teams$ | async" [team]="team" (click)="onTeamSelected(team)">
     </app-card-team>
   </ion-list>
 </ion-content>

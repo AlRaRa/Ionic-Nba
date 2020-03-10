@@ -11,34 +11,15 @@ import { map, distinctUntilChanged } from 'rxjs/operators';
 })
 export class TeamService {
 
-  public foundTeams$: Observable<Team[]>;
-  private teamsSubject = new BehaviorSubject<Team[]>([]);
-  public teams$: Observable<Team[]> = this.teamsSubject.asObservable();
+  public teams$: Observable<Team[]>;
 
   constructor(private http: HttpClient) {
-    this.getTeam().subscribe(teams => {
-      this.teamsSubject.next(teams);
-    });
-    this.foundTeams$ = this.getTeam();
+    this.teams$ = this.getTeam();
   }
 
-  getTeam(){
+  getTeam(): Observable<Team[]> {
     return this.http.get<Team[]>(environment.teams);
   }
 
-  filterByName(characters: string) {
-    this.foundTeams$ = this.teams$.pipe(
-      map(players => players.filter(data => data.name.toUpperCase()
-      .includes(characters.toUpperCase())))
-    );
-  }
 
-  searchEntries(terms: Observable<string>) {
-    terms
-      .pipe(
-        map((e: any) => e.target.value),
-        distinctUntilChanged()
-      )
-      .subscribe(data => this.filterByName(data));
-  }
 }

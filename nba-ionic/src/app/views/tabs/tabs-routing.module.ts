@@ -14,7 +14,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tabHome/tab-Home.module').then(m => m.TabHomePageModule)
+              import('../home/tabHome/tab-Home.module').then(m => m.TabHomePageModule)
           }
         ]
       },
@@ -24,7 +24,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tabPlayers/tab-Players.module').then(m => m.TabPlayersPageModule)
+              import('../players/tabPlayers/tab-Players.module').then(m => m.TabPlayersPageModule)
           }
         ]
       },
@@ -34,7 +34,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tabTeams/tab-Teams.module').then(m => m.TabTeamsPageModule)
+              import('../teams/tabTeams/tab-Teams.module').then(m => m.TabTeamsPageModule)
           }
         ]
       },
@@ -56,4 +56,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

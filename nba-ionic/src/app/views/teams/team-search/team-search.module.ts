@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TeamSearchPageRoutingModule } from './team-search-routing.module';
 import { TeamSearchPage } from './team-search.page';
-import { CardTeamComponent } from '../cards/card-team/card-team.component';
+import { CardTeamComponent } from '../card-team/card-team.component';
 import { TeamModalPageModule } from '../team-modal/team-modal.module';
 
 @NgModule({
