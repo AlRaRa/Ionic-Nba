@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-import {  distinctUntilChanged, map } from 'rxjs/operators';
+import {  distinctUntilChanged, map, share } from 'rxjs/operators';
 import { Player } from '../../models/player.model';
 
 @Injectable({
@@ -11,32 +11,21 @@ import { Player } from '../../models/player.model';
 export class PlayerService {
 
   public foundPlayers$: Observable<Player[]>;
-  private playersSubject = new BehaviorSubject<Player[]>([]);
-  public players$: Observable<Player[]> = this.playersSubject.asObservable();
+  public players$: Observable<Player[]> 
 
   constructor(private http: HttpClient) {
-    this.getPlayer().subscribe(players => {
-      this.playersSubject.next(players);
-    });
 
-    this.foundPlayers$ = this.getPlayer();
-
+    this.players$ = this.http.get<Player[]>(environment.players).pipe(share())
+    this.foundPlayers$ = this.players$;
   }
 
-  getPlayer() {
-  
-    return this.http.get<Player[]>(environment.players);
-  }
+ 
 
   filterPlayersByTeam(team) {
-    this.foundPlayers$ = this.players$.pipe(map(players => players.filter(player => player.team === team.value)));
+    this.foundPlayers$ = this.players$.pipe(map(players => players.filter(player => player.team === team)));
   }
 
-  filterPlayerByPosition(position) {
-    this.foundPlayers$ = this.players$.pipe(
-      map(players => players.filter(player => player.position === position.value))
-    );
-  }
+ 
 
   filterByNameAndSurname(characters: string) {
     this.foundPlayers$ = this.players$.pipe(
