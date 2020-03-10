@@ -3,10 +3,10 @@
     <ion-title class="ion-text-center">Players</ion-title>
   </ion-toolbar>
   <ion-searchbar (ionChange)="searchTerm$.next($event)"></ion-searchbar>
-  <ion-select [interfaceOptions]="customPopoverOptions"  (ionChange)="getSelectedTeam($event)">
+  <ion-select interface='popover' [interfaceOptions]="customPopoverOptions" (ionChange)="getSelectedTeam($event)">
     <ion-select-option *ngFor="let player of (playerService.players$ | async) | filterRepeat " [value]="player.team">
       {{player.team}}
-    </ion-select-option>  
+    </ion-select-option>
   </ion-select>
 </ion-header>
 
