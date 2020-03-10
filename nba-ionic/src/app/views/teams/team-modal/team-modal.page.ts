@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Team } from 'src/app/shared/models/team.model';
 import { ModalController } from '@ionic/angular';
 
@@ -7,13 +7,11 @@ import { ModalController } from '@ionic/angular';
   templateUrl: './team-modal.page.html',
   styleUrls: ['./team-modal.page.scss'],
 })
-export class TeamModalPage{
+export class TeamModalPage {
 
   @Input() team: Team;
 
   constructor(private modalController: ModalController) { }
-
- 
 
   exit() {
     this.modalController.dismiss();

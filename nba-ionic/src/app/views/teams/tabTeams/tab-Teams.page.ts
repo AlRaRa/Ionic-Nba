@@ -5,8 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: 'tab-Teams.page.html',
   styleUrls: ['tab-Teams.page.scss']
 })
-export class TabTeamsPage {
-
-  constructor() {}
-
-}
+export class TabTeamsPage { }

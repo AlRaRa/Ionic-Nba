@@ -22,26 +22,26 @@ export class LoginPage implements OnInit {
     if (this.firebaseService.isLogged) this.router.navigateByUrl('/');
   }
 
-  loginEmail = () => {
+  loginEmail = (): void => {
     const { email, password } = this.login.value;
     this.firebaseService.loginWithEmail({ email, password }).then(() => {
       this.router.navigateByUrl('/');
     });
   };
 
-  loginGoogle = () => {
+  loginGoogle = (): void => {
     this.firebaseService.loginWithGoogle().then(() => {
       this.router.navigateByUrl('/');
     });
   };
 
-  loginFacebook = () => {
+  loginFacebook = (): void => {
     this.firebaseService.loginWithFacebook().then(() => {
       this.router.navigateByUrl('/');
     });
   };
 
-  register = () => {
+  register = (): void => {
     const { email, password } = this.login.value;
     this.firebaseService.registerUser({ email, password }).then(() => {
       this.router.navigateByUrl('/');

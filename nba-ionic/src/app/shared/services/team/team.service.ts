@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Team } from '../../models/team.model';
 import { environment } from 'src/environments/environment.prod';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, distinctUntilChanged } from 'rxjs/operators';
 
 
 @Injectable({

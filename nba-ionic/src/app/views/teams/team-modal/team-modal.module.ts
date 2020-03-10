@@ -17,4 +17,4 @@ import { TeamModalPage } from './team-modal.page';
   ],
   declarations: [TeamModalPage]
 })
-export class TeamModalPageModule {}
+export class TeamModalPageModule { }

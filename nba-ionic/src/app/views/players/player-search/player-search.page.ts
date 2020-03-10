@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PlayerService } from '../../../shared/services/player/player.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { Player } from 'src/app/shared/models/player.model';
@@ -14,9 +14,7 @@ import { PlayerModalPage } from '../player-modal/player-modal.page';
 })
 export class PlayerSearchPage {
 
-
   searchTerm$ = new Subject<string>();
-
 
   constructor(private playerService: PlayerService, private modalController: ModalController) {
 
@@ -28,10 +26,6 @@ export class PlayerSearchPage {
     this.playerService.filterPlayersByTeam(e.detail.value);
   }
 
-
-
-
-
   async onPlayerSelected(player: Player) {
     const modal = await this.modalController.create({
       component: PlayerModalPage,
@@ -39,9 +33,5 @@ export class PlayerSearchPage {
     });
     await modal.present();
   }
-
-
-
-
 
 }

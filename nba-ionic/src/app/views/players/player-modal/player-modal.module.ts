@@ -17,4 +17,4 @@ import { PlayerModalPage } from './player-modal.page';
   ],
   declarations: [PlayerModalPage]
 })
-export class PlayerModalPageModule {}
+export class PlayerModalPageModule { }
