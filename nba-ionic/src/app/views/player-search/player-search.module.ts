@@ -6,6 +6,8 @@ import { PlayerSearchPageRoutingModule } from './player-search-routing.module';
 import { PlayerSearchPage } from './player-search.page';
 import { CardPlayerComponent } from '../cards/card-player/card-player.component';
 import { PlayerModalPageModule } from '../player-modal/player-modal.module';
+import { FilterRepeatPipe } from '../../shared/pipes/repeat-filter.pipe';
+import { PlayerService } from 'src/app/shared/services/player/player.service';
 
 
 
@@ -17,7 +19,8 @@ import { PlayerModalPageModule } from '../player-modal/player-modal.module';
     PlayerSearchPageRoutingModule,
     PlayerModalPageModule
   ],
-  declarations: [PlayerSearchPage, CardPlayerComponent],
-  exports: [PlayerSearchPage]
+  declarations: [PlayerSearchPage, CardPlayerComponent,FilterRepeatPipe],
+  exports: [PlayerSearchPage],
+  providers:[PlayerService]
 })
 export class PlayerSearchPageModule { }

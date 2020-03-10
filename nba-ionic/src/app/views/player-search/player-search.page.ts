@@ -21,6 +21,11 @@ export class PlayerSearchPage {
   constructor(private playerService: PlayerService, private modalController: ModalController) { 
 
     this.playerService.searchEntries(this.searchTerm$);
+   
+  }
+
+  getSelectedTeam(e) {
+    this.playerService.filterPlayersByTeam(e.detail.value);
   }
 
  
